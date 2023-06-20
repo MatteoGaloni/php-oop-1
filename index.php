@@ -4,11 +4,14 @@ class Movie
     public $title;
     public $language;
     public $overview;
+    public $category = [];
 
-    function __construct($_title, $_language)
+
+    function __construct($_title, $_language, array $_category)
     {
         $this->title = $_title;
         $this->language = $_language;
+        $this->category = $_category;
     }
 
     public function getFlag()
@@ -28,8 +31,10 @@ class Movie
     // }
 }
 
-$blackMirror = new Movie("Black-Mirror", "EN");
-$leFateIgnoranti = new Movie("Le fate Ignoranti", "IT")
+
+
+$blackMirror = new Movie("Black-Mirror", "EN", ["Science fiction, Dystopia, Anthology Speculative fiction"]);
+$leFateIgnoranti = new Movie("Le fate Ignoranti", "IT", [])
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +51,11 @@ $leFateIgnoranti = new Movie("Le fate Ignoranti", "IT")
     <div>
         <h1> <?php var_dump($blackMirror) ?> </h1>
         <h2> <?php $blackMirror->getFlag() ?></h2>
+    </div>
+    <div>
+        <h1> <?php var_dump($leFateIgnoranti) ?> </h1>
         <h2> <?php $leFateIgnoranti->getFlag() ?></h2>
+
     </div>
 </body>
 
