@@ -1,12 +1,5 @@
 <?php
-include './Models/movie.php';
-include './Models/actor.php';
-
-$blackMirror = new Movie("Black-Mirror", "EN", ["Science fiction, Dystopia, Anthology Speculative fiction"], new Actor("Josh", "Hartnett", "Non Protagonista"));
-$leFateIgnoranti = new Movie("Le fate Ignoranti", "IT", ["Commedia", "Drammatico"], new Actor("Stefano", "Accorsi", "Protagonista"));
-
-$movies = [$blackMirror, $leFateIgnoranti];
-
+include './db.php';
 ?>
 
 
@@ -26,29 +19,17 @@ $movies = [$blackMirror, $leFateIgnoranti];
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <div class="card">
-                    <img class="card-img-top" src="<?php echo $blackMirror->img ?>" alt="Card image cap" />
-                    <div class="card-body">
-                        <h2 class="card-title"> <?php echo $blackMirror->title ?></h2>
-                        <p class="card-title"> <?php echo $blackMirror->overview ?></p>
-                        <h2> <?php $blackMirror->getFlag() ?></h2>
+                <?php foreach ($movies as $movie) {  ?>
+                    <div class="card">
+                        <img class="card-img-top" src="<?php echo $movie->img ?>" alt="Card image cap" />
+                        <div class="card-body">
+                            <h2 class="card-title"> <?php echo $movie->title ?></h2>
+                            <p class="card-title"> <?php echo $movie->overview ?></p>
+                            <h2> <?php $movie->getFlag() ?></h2>
+                        </div>
                     </div>
-                </div>
+                <?php  } ?>
             </div>
-            <div class="col-6">
-                <div class="card">
-                    <img class="card-img-top" src="<?php echo $leFateIgnoranti->img ?>" alt="Card image cap" />
-                    <div class="card-body">
-                        <h2 class="card-title"> <?php echo $leFateIgnoranti->title ?></h2>
-                        <p class="card-title"> <?php echo $leFateIgnoranti->overview ?></p>
-                        <h2> <?php $leFateIgnoranti->getFlag() ?></h2>
-                    </div>
-                </div>
-            </div>
-            <?php foreach ($movies as $key => $value) {
-                var_dump($value);
-            }
-            ?>
         </div>
     </div>
 </body>
