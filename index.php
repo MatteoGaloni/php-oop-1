@@ -21,7 +21,7 @@ include './db.php';
         <div class="row">
             <?php foreach ($movies as $movie) {  ?>
                 <div class="col-6">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card mt-4">
                         <img class="card-img-top" src="<?php echo $movie->img ?>" alt="Card image cap" />
                         <div class="card-body">
                             <h2 class="card-title"> <?php echo $movie->title ?></h2>
